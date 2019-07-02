@@ -26,10 +26,10 @@ public class ServiceCenter implements Server {
 	
 	private static boolean isRunning = false;
 	
-	private static int port;
+	private static int PORT;
 	
 	public ServiceCenter(int port) {
-		this.port = port;
+		PORT = port;
 	}
 
 	@Override
@@ -41,7 +41,7 @@ public class ServiceCenter implements Server {
 	@Override
 	public void start() throws IOException {
 		ServerSocket server = new ServerSocket();
-		server.bind(new InetSocketAddress((port)));
+		server.bind(new InetSocketAddress((PORT)));
 		System.out.println("start server");
 		try {
 			while(true) {
@@ -67,7 +67,7 @@ public class ServiceCenter implements Server {
 
 	@Override
 	public int getPort() {
-		return port;
+		return PORT;
 	}
 	
 	private static class ServiceTask implements Runnable{
